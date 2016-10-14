@@ -18,6 +18,7 @@ button.onclick = function(){
         }
         //not done yet
     };
+    
     //make the request
     request.open('GET','http://rchauhan11296.imad.hasura-app.io/counter',true);
     request.send(null);

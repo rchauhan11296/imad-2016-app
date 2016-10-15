@@ -32,7 +32,8 @@ submit.onclick = function(){
     
  var nameval = document.getElementById('name');
  var nameis = nameval.value;
-    
+ var namearray=[];
+
  var request = new XMLHttpRequest();
     
     // capture the response and store it in a variable

@@ -25,8 +25,15 @@ button.onclick = function(){
 };
 
 // submit name
-var nameval = document.getElementById('name').value;
+var list ='';
+var names=['name1','name2','name3'];
+var nameval = document.getElementById('name');
+var nameis = nameval.value;
 var submit = document.getElementById('submit_btn');
 submit.onclick = function(){
- console.log(nameval);   
-}
+    for(var i=0;i<names.length;i++){
+        list+='<li>'+names[i]+'</li>';
+        var ul=document.getElementById('uno_list');
+        ul.innerHTML = list;
+    }
+};

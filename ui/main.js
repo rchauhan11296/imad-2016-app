@@ -3,7 +3,7 @@ var button = document.getElementById('counter');
 
 button.onclick = function(){
     
-    // create a r equest to the counter end point
+    // create a request to the counter end point
     var request = new XMLHttpRequest();
     
     // capture the response and store it in a variable
@@ -27,22 +27,34 @@ button.onclick = function(){
 // submit name
 var list ='';
 var names=['name1','name2','name3'];
-var nameval = document.getElementById('name');
-var nameis = nameval.value;
 var submit = document.getElementById('submit_btn');
 submit.onclick = function(){
-    for(var i=0;i<names.length;i++){
-        list+='<li>'+names[i]+'</li>';
-        var ul=document.getElementById('uno_list');
-        ul.innerHTML = list;
-    }
+    
+ var nameval = document.getElementById('name');
+ var nameis = nameval.value;
+    
+ var request = new XMLHttpRequest();
+    
+    // capture the response and store it in a variable
+    request.onreadystatechange = function(){
+        if(request.readyState=== XMLHttpRequest.DONE){
+        //take some action
+            if(request.status===200){
+                var namearray = JSON.parse(request.responseText);
+                var ul= document.getElementById('uno_list');
+                
+                for(var i=0;i<namearray.length;i++){
+                ul.innerHTML='<li>'+namearray[i]+'</li>';
+                }
+            }
+        }
+        //not done yet
+    };
+    
+    //make the request
+    request.open('GET','http://rchauhan11296.imad.hasura-app.io/submit-name?name='+nameis,true);
+    request.send(null);
 };
-
-
-
-
-
-
 
 
 

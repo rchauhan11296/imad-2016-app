@@ -37,7 +37,7 @@ app.get('/counter',function(req,res){
 
 var names=[];
 app.get('/submit-name',function(req,res){
-    var nameis = req.qyery.name;
+    var nameis = req.query.name;
     names.push(nameis);
     res.send(JSON.stringify(names));
 });

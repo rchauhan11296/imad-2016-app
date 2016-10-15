@@ -23,3 +23,7 @@ button.onclick = function(){
     request.open('GET','http://rchauhan11296.imad.hasura-app.io/counter',true);
     request.send(null);
 };
+
+// submit name
+var nameval = document.getElementById('name').value;
+console.log(nameval);
